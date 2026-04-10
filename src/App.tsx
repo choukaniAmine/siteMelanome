@@ -25,8 +25,8 @@ const QUESTIONS: Question[] = [
     criterion: 'A',
     title: 'Critère A — Asymétrie',
     options: [
-      { img: '/critereA-suspect.jpg', label: 'Lésion suspecte', correct: true },
-      { img: '/critereA-sain.jpg', label: 'Grain de beauté sain', correct: false },
+      { img: '/critereA-suspect.jpg', label: '', correct: true },
+      { img: '/critereA-sain.jpg', label: '', correct: false },
     ],
     explanation: 'La lésion suspecte présente une forme asymétrique — les deux moitiés sont différentes. Un grain de beauté sain est symétrique avec des moitiés similaires.'
   },
@@ -35,8 +35,8 @@ const QUESTIONS: Question[] = [
     criterion: 'B',
     title: 'Critère B — Bordure',
     options: [
-      { img: '/critereB-suspect.jpg', label: 'Lésion suspecte', correct: true },
-      { img: '/critereB-sain.jpg', label: 'Grain de beauté sain', correct: false },
+      { img: '/critereB-suspect.jpg', label: '', correct: true },
+      { img: '/critereB-sain.jpg', label: '', correct: false },
     ],
     explanation: 'Les bords de la lésion suspecte ne sont pas réguliers — contours irréguliers, dentelés, en zigzag ou flous. Un grain sain a des bords nets et réguliers.'
   },
@@ -45,8 +45,9 @@ const QUESTIONS: Question[] = [
     criterion: 'C',
     title: 'Critère C — Couleur',
     options: [
-      { img: '/critereC-suspect.jpg', label: 'Mélanome (couleurs multiples)', correct: true },
-      { img: '/critereC-sain.jpg', label: 'Grain de beauté sain', correct: false },
+      
+      { img: '/critereC-sain.jpg', label: '', correct: false },
+      { img: '/critereC-suspect.jpg', label: '', correct: true },
     ],
     explanation: 'La lésion suspecte présente plusieurs couleurs (brun clair, foncé, noir, rouge) avec répartition irrégulière. Un grain sain a une couleur uniforme.'
   },
@@ -55,8 +56,9 @@ const QUESTIONS: Question[] = [
     criterion: 'D',
     title: 'Critère D — Diamètre',
     options: [
-      { img: '/critereD-suspect.jpg', label: 'Diamètre > 6mm (suspect)', correct: true },
-      { img: '/critereD-sain.jpg', label: 'Diamètre < 6mm (sain)', correct: false },
+     
+      { img: '/critereD-sain.jpg', label: 'Diamètre < 6mm', correct: false },
+       { img: '/critereD-suspect.jpg', label: 'Diamètre > 6mm', correct: true },
     ],
     explanation: 'Une lésion suspecte dépasse souvent 6mm de diamètre. Un grain de beauté sain est généralement plus petit et stable dans le temps.'
   },
@@ -65,8 +67,8 @@ const QUESTIONS: Question[] = [
     criterion: 'E',
     title: 'Critère E — Évolution',
     options: [
-      { img: '/critereE-suspect.jpg', label: 'Lésion évoluante (suspect)', correct: true },
-      { img: '/critereE-sain.jpg', label: 'Grain de beauté stable', correct: false },
+      { img: '/critereE-suspect.jpg', label: 'Après 2 ans', correct: true },
+      { img: '/critereE-sain.jpg', label: 'Après 2 ans', correct: false },
     ],
     explanation: 'Tout changement dans le temps (taille, forme, couleur, épaisseur) est suspect. Consultez un dermatologue en cas de doute !'
   },
@@ -376,13 +378,15 @@ function Quiz({
                   )}
                 </div>
                 
-                <div className="p-5">
-                  <p className={`text-base font-semibold text-center ${
-                    showCorrect ? 'text-green-600' : showWrong ? 'text-red-600' : 'text-gray-700'
-                  }`}>
-                    {opt.label}
-                  </p>
-                </div>
+                {opt.label && (
+                  <div className="p-5">
+                    <p className={`text-base font-semibold text-center ${
+                      showCorrect ? 'text-green-600' : showWrong ? 'text-red-600' : 'text-gray-700'
+                    }`}>
+                      {opt.label}
+                    </p>
+                  </div>
+                )}
               </button>
             )
           })}
