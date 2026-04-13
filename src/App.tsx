@@ -45,9 +45,9 @@ const QUESTIONS: Question[] = [
     criterion: 'C',
     title: 'Critère C — Couleur',
     options: [
+      { img: '/critereC-suspect.jpg', label: '', correct: false },
+      { img: '/critereC-sain.jpg', label: '', correct: true },
       
-      { img: '/critereC-sain.jpg', label: '', correct: false },
-      { img: '/critereC-suspect.jpg', label: '', correct: true },
     ],
     explanation: 'La lésion suspecte présente plusieurs couleurs (brun clair, foncé, noir, rouge) avec répartition irrégulière. Un grain sain a une couleur uniforme.'
   },
